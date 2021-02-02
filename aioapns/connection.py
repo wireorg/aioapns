@@ -61,8 +61,7 @@ class JWTAuthorizationHeaderProvider(AuthorizationHeaderProvider):
                 payload={'iss': self.team_id, 'iat': self.__issued_at},
                 key=self.key,
                 algorithm='ES256',
-                headers={'kid': self.key_id},
-            ).decode('ascii')
+                headers={'kid': self.key_id})
             self.__header = f"bearer {token}"
         return self.__header
 
